@@ -1,4 +1,6 @@
-# Copyright (C) 2010 The Android Open Source Project
+#!/bin/sh
+
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_STEM := maguro/device-partial.mk
+# 223971 = ITL41D
+# 228551 = ITL41F
+# 235179 = ICL53F
+# 299849 = IMM76D
 
-$(call inherit-product-if-exists, vendor/broadcom/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/csr/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/imgtec/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/invensense/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/nxp/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/samsung/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/ti/$(LOCAL_STEM))
+BUILD=299849
+DEVICE=maguro
+PRODUCT=yakju
+VERSION=imm76d
+BOOTLOADER=primela03
+RADIO=i9250xxla02
+
+source ../../../common/generate-factory-images-common.sh
+
+BUILD=299849
+DEVICE=maguro
+PRODUCT=takju
+VERSION=imm76d
+BOOTLOADER=primela03
+RADIO=i9250xxla02
+
+source ../../../common/generate-factory-images-common.sh
